@@ -1,0 +1,14 @@
+<footer class="footer-copyright text-center fixed-bottom">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+
+        <a class="text-dark">הקלטת קבצי קול</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- MDB -->
+
+</body>
+
+
+</html>
