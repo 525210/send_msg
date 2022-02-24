@@ -8,14 +8,14 @@ $data = $db->getIvrs();
 
     <!--===========================================================================================================================================-->
 
-    <table class="table table-striped">
+    <table class="table table-striped shadow-5-strong"">
         <thead>
         <tr>
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">כותרת הקלטת קול</th>
-            <th scope="col">שם קובץ</th>
-            <th scope="col">למחוק קובץ</th>
+            <th scope="col"><p class="text-success">ID</p></th>
+            <th scope="col"><p class="text-success">כותרת הקלטת קול</p></th>
+            <th scope="col"><p class="text-success">שם קובץ</p></th>
+            <th scope="col"><p class="text-success">למחוק קובץ</p></th>
         </tr>
         </tr>
         </thead>
@@ -26,9 +26,9 @@ $data = $db->getIvrs();
 
             foreach ($data as $item)
             {
-                $rec = str_replace("/usr/share/asterisk/agi-bin/sound/", "", $item->file_name);
+                $rec = str_replace("/var/www/html/speech2text.mine.nu/public/sound_files/", "", $item->file_name);
                 echo "<tr><td>" . $item->id . "</td><td>" . $item->ivr_name .
-                    "</td><td><audio controls style='height: 30px'><source src='http://104.155.124.139:96/$rec.wav'</audio></td><td>
+                    "</td><td><audio controls style='height: 30px'><source src='/sound_files/$rec.wav'</audio></td><td>
               <a href='insert_phone.php?id=$item->id' value='$item->id' class='btn btn-warning btn-sm' type='submit'>שליחה</button></td></tr>";
             }
             ?>

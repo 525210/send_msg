@@ -1,3 +1,8 @@
+<?php
+$active_class = $_SERVER['SCRIPT_NAME'];
+$success = "btn btn-outline-success";
+$warning = "btn btn-outline-warning";
+?>
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -18,7 +23,7 @@
 
 
 <div class="container my-5">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-5-strong">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">מערכת הודעות קוליות</a>
             <button
@@ -34,14 +39,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" aria-current="page" href="/">דף הבית</a>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if ($active_class == '/index.php'){echo 'active';}?>" aria-current="page" href="/">דף הבית</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add_records.php">ליצור הודעה חדשה</a>
+                        <a class="nav-link <?php if ($active_class == '/add_records.php'){echo 'active';}?>" href="add_records.php">ליצור הודעה חדשה</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="send_msg.php">שליחת הודעה קולית</a>
+                        <a class="nav-link <?php if ($active_class == '/send_msg.php'){echo 'active';}?>" href="send_msg.php">שליחת הודעה קולית</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if ($active_class == '/call_statistics.php'){echo 'active';}?>" href="call_statistics.php">סטטיסטיקת שיחות</a>
                     </li>
 
                 </ul>

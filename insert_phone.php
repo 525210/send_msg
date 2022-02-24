@@ -5,7 +5,7 @@ require_once "Db.php";
 $db = new Db();
 $data = $db->getIvrs();
 $record_name = $db->getRecordName($_GET['id']);
-$rec = str_replace("/usr/share/asterisk/agi-bin/sound/", "", $record_name);
+$rec = str_replace("/var/www/html/speech2text.mine.nu/public/sound_files/", "", $record_name);
 
 ?>
 
@@ -14,7 +14,7 @@ $rec = str_replace("/usr/share/asterisk/agi-bin/sound/", "", $record_name);
         <div class="row">
             <div class="col-4">
                 <audio controls style="height: 30px">
-                    <source src="http://104.155.124.139:96/<?php echo $rec; ?>.wav">
+                    <source src="/sound_files/<?php echo $rec; ?>.wav">
                 </audio>
             </div>
             <div class="col-4">

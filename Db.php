@@ -18,7 +18,7 @@ class Db
         $this->host = 'localhost';
         $this->dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db;
         $this->conn = new PDO($this->dsn, $this->user, $this->password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-        $this->path = '/var/lib/asterisk/agi-bin/sound/';
+        $this->path = '/var/www/html/speech2text.mine.nu/public/sound_files/';
     }
 
     public function getIvrs()
@@ -75,24 +75,25 @@ class Db
 
     public function createCallFiles($phone, $id)
     {
-
         $rec_name = self::getRecordName($id);
-//        print_r($rec_name);
-//        $path = '/var/spool/asterisk/outgoing/';
         $path = __DIR__ . '/call_files/';
         $myfile = fopen($path . "call.call", "w") or die("Unable to open file!");
         $channel = "Channel: Local/$phone@from-internal\n";
         $context = "Context: playprompt\n";
+        $callerid = "Callerid: 22222\n";
         $extension = "Extension: s\n";
         $priority = "Priority: 1\n";
         $set = "Set: filename=$rec_name\n";
         fwrite($myfile, $channel);
         fwrite($myfile, $context);
+        fwrite($myfile, $callerid);
         fwrite($myfile, $extension);
         fwrite($myfile, $priority);
         fwrite($myfile, $set);
         fclose($myfile);
+        echo "<div class='col my-5 d-flex justify-content-center'><p class='note note-success'><strong>הודעה נשלחה למספר הטלפון : </strong>$phone</p></div>";
     }
+
 }
 /*
  * Channel: Local/0544525210@from-internal
@@ -101,4 +102,10 @@ Context: playprompt
 Extension: s
 Priority: 1
 Set: filename=/usr/share/asterisk/agi-bin/sound/62134c48e9189
+
+<p class='note note-success'>
+  <strong>הודעה נשלחה למספר הטלפון:</strong> Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+  Cum doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui necessitatibus
+  delectus placeat illo rem id nisi consequatur esse, sint perspiciatis soluta porro?
+</p>
  */
