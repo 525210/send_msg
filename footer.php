@@ -1,3 +1,4 @@
+<hr class="my-5" />
 <footer class="bg-primary text-white fixed-bottom">
     <!-- Grid container -->
 

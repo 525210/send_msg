@@ -7,8 +7,6 @@
     <div class="col mb-4 justify-content-center">
 <!--===========================================================================================================================================-->
 
-
-
         <table class="table table-striped">
             <thead>
             <tr>
@@ -26,10 +24,10 @@
 
             foreach ($data as $item)
             {
-                $rec = str_replace("/usr/share/asterisk/agi-bin/sound/", "", $item->file_name);
+                $rec = str_replace("/var/www/html/speech2text.mine.nu/public/sound_files/", "", $item->file_name);
                 echo "<tr><td>" . $item->id . "</td><td>" . $item->ivr_name .
-                    "</td><td><audio controls style='height: 30px'><source src='http://104.155.124.139:96/$rec.wav'</audio></td><td>
-                <button type='submit' name='id' value='$item->id' class='btn btn-danger btn-sm'>למחוק</button></td></tr>";
+                     "</td><td><audio controls style='height: 30px'><source src='/sound_files/$rec.wav'</audio></td><td>
+                      <button type='submit' name='id' value='$item->id' class='btn btn-danger btn-sm'>למחוק</button></td></tr>";
             }
             ?>
             </tbody>

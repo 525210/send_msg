@@ -12,13 +12,13 @@ class Db
 
     public function __construct()
     {
-        $this->user = 'stas';
-        $this->password = '0544525210';
+        $this->user = 'root';
+        $this->password = 'Stas@525210';
         $this->db = 'records';
         $this->host = 'localhost';
         $this->dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db;
         $this->conn = new PDO($this->dsn, $this->user, $this->password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-        $this->path = '/usr/share/asterisk/agi-bin/sound/';
+        $this->path = '/var/lib/asterisk/agi-bin/sound/';
     }
 
     public function getIvrs()
